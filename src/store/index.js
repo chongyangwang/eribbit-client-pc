@@ -2,13 +2,13 @@
  * @Description: vuex
  * @Author: cy2020
  * @Date: 2022-02-19 14:30:10
- * @LastEditTime: 2022-02-19 17:32:10
+ * @LastEditTime: 2022-02-20 16:55:15
  */
 import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import user from './modules/user.js'
 import cart from './modules/cart.js'
-import goods from './modules/goods.js'
+import category from './modules/category.js'
 
 export default createStore({
   state: {
@@ -20,7 +20,7 @@ export default createStore({
   modules: {
     user,
     cart,
-    goods
+    category
   },
   plugins: [
     createPersistedState({

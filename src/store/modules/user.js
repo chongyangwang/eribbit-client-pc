@@ -8,7 +8,7 @@ export default {
   namespaced: true,
   state: () => {
     return {
-      user: {
+      profile: {
         account: '',
         token: ''
       }
@@ -16,7 +16,7 @@ export default {
   },
   mutations: {
     setUser (state, payload) {
-      state.user = payload
+      state.profile = payload
     }
   },
   actions: {},
