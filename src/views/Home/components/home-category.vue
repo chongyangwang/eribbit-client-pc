@@ -2,7 +2,7 @@
  * @Description: home-category
  * @Author: cy2020
  * @Date: 2022-02-20 19:21:31
- * @LastEditTime: 2022-02-21 13:02:50
+ * @LastEditTime: 2022-02-21 16:44:15
 -->
 <template>
  <div class="home-category" @mouseleave="categoryId = null">
@@ -15,6 +15,10 @@
             :key="sub.id"
             :to="`/category/sub/${sub.id}`"
             >{{ sub.name }}</RouterLink>
+        </template>
+        <template v-else>
+          <XtxSkeleton width="60px" height="18px" bg="rgba(255,255,255,0.2)" style="margin-right:5px" />
+          <XtxSkeleton width="50px" height="18px" bg="rgba(255,255,255,0.2)"/>
         </template>
       </li>
     </ul>
@@ -118,7 +122,7 @@ export default {
     }
   }
   // 弹出层样式
-    .layer {
+  .layer {
     width: 990px;
     height: 500px;
     background: rgba(255,255,255,0.8);

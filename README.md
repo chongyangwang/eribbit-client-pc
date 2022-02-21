@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: cy2020
  * @Date: 2022-02-19 14:30:22
- * @LastEditTime: 2022-02-19 14:41:30
+ * @LastEditTime: 2022-02-21 14:31:10
 -->
 # eribbit-client-pc
 
@@ -49,3 +49,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     }
   }
 }
+
+// 指令 组建  原型方法  过滤器
+ 
+插件  扩展vue原有的功能
+
+vue3  没有过滤器

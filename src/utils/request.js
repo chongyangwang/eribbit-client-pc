@@ -2,7 +2,7 @@
  * @Description: request
  * @Author: cy2020
  * @Date: 2022-02-20 11:04:15
- * @LastEditTime: 2022-02-20 11:49:24
+ * @LastEditTime: 2022-02-21 16:37:15
  */
 
 import axios from 'axios'
@@ -22,9 +22,9 @@ const instance = axios.create({
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
-  const { user } = store.state.user
-  if (user.token) {
-    config.headers.Authorization = `Bearer ${user.token}`
+  const { profile } = store.state.user
+  if (profile.token) {
+    config.headers.Authorization = `Bearer ${profile.token}`
   }
   return config
 }, function (error) {
