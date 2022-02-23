@@ -2,7 +2,7 @@
  * @Description: 热点
  * @Author: cy2020
  * @Date: 2022-02-22 15:10:48
- * @LastEditTime: 2022-02-22 18:32:54
+ * @LastEditTime: 2022-02-23 19:38:11
 -->
 <template>
   <div class="home-hot">
@@ -12,7 +12,7 @@
             <ul v-if="list.length" class="goods-list">
                 <li v-for="item in list" :key="item.id">
                   <RouterLink to="/">
-                    <img :src="item.picture" alt="">
+                    <img v-lazy="item.picture" alt="">
                     <p class="name">{{item.title}}</p>
                     <p class="desc">{{item.alt}}</p>
                   </RouterLink>
@@ -63,7 +63,7 @@ export default {
     }
     p {
       font-size: 22px;
-      padding-top: 12px;
+      // padding-top: 12px;
       text-align: center;
     }
     .desc {

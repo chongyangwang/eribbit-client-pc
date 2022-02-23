@@ -2,7 +2,7 @@
  * @Description:新鲜好物
  * @Author: cy2020
  * @Date: 2022-02-22 15:10:48
- * @LastEditTime: 2022-02-22 18:33:27
+ * @LastEditTime: 2022-02-23 19:38:22
 -->
 <template>
   <div class="home-new">
@@ -13,7 +13,7 @@
             <ul v-if="goods.length" class="goods-list">
               <li v-for="item in goods" :key="item.id">
                 <RouterLink :to="`/product/${item.id}`">
-                  <img :src="item.picture" alt="">
+                  <img v-lazy="item.picture" alt="">
                   <p class="name ellipsis">{{item.name}}</p>
                   <p class="price">&yen;{{item.price}}</p>
                 </RouterLink>

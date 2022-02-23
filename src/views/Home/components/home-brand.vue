@@ -2,7 +2,7 @@
  * @Description: home-brand
  * @Author: cy2020
  * @Date: 2022-02-22 18:59:41
- * @LastEditTime: 2022-02-22 19:18:33
+ * @LastEditTime: 2022-02-23 19:37:10
 -->
 <template>
   <HomePanel title="热门品牌" sub-title="国际经典 品质保证">
@@ -15,7 +15,7 @@
         <ul v-if="brands.length" class="list" :style="{transform:`translateX(${-index*1240}px)`}">
           <li v-for="item in brands" :key="item.id">
             <RouterLink to="/">
-              <img :src="item.picture" alt="">
+              <img v-lazy="item.picture" alt="">
             </RouterLink>
           </li>
         </ul>
