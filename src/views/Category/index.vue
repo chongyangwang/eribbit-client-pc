@@ -2,7 +2,7 @@
  * @Description: TopCategory
  * @Author: cy2020
  * @Date: 2022-02-20 17:54:38
- * @LastEditTime: 2022-02-24 19:44:16
+ * @LastEditTime: 2022-03-01 16:00:51
 -->
 <template>
   <div class="top-category">
@@ -69,7 +69,7 @@ export default {
       })
     }
     watch(() => currentRoute.params.id, (newVal) => {
-      if (newVal) {
+      if (newVal && `/category/${newVal}` === currentRoute.path) {
         getSubList()
       }
     }, { immediate: true })

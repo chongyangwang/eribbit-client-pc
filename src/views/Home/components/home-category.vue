@@ -2,12 +2,12 @@
  * @Description: home-category
  * @Author: cy2020
  * @Date: 2022-02-20 19:21:31
- * @LastEditTime: 2022-02-21 16:44:15
+ * @LastEditTime: 2022-03-01 15:56:41
 -->
 <template>
  <div class="home-category" @mouseleave="categoryId = null">
     <ul class="menu">
-      <li :class="{ active: categoryId === item.id }" v-for="item in menuList" :key="item.id" @mouseenter="categoryId = item.id">
+      <li :class="{ active: categoryId === item.id }" v-for="item in menuList" :key="item.id" @mousemove="categoryId = item.id">
         <RouterLink :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
         <template v-if="item.children">
           <RouterLink
