@@ -2,7 +2,7 @@
  * @Description: TopCategory
  * @Author: cy2020
  * @Date: 2022-02-20 17:54:38
- * @LastEditTime: 2022-03-03 11:14:20
+ * @LastEditTime: 2022-03-03 17:20:51
 -->
 <template>
 <div class="sub-categroy">
@@ -14,9 +14,9 @@
         <XtxBreadItem :key="category.sub.id" v-if="category.sub">{{category.sub.name}}</XtxBreadItem>
       </Transition>
     </XtxBread>
-    <SubFilter />
+    <SubFilter @filter-change="filterChange"/>
     <div class="goods-list">
-      <SubSort> </SubSort>
+      <SubSort @sort-change="sortChange" />
       <ul>
         <li v-for="item in goodsList" :key="item.id">
           <GoodsItem :goods="item"></GoodsItem >
@@ -27,7 +27,6 @@
   </div>
 </div>
 </template>
-
 <script>
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -67,10 +66,11 @@ export default {
       return cate
     })
     const getData = () => {
+      loading.value = true
       requestParams.categoryId = route.params.id
-      findSubCategoryGoods(requestParams).then(res => {
-        if (res.result.items.length) {
-          goodsList.value.push(...res.result.items)
+      findSubCategoryGoods(requestParams).then(({ result }) => {
+        if (result.items.length) {
+          goodsList.value.push(...result.items)
           requestParams.page++
         } else {
           finished.value = true
@@ -78,10 +78,22 @@ export default {
         loading.value = false
       })
     }
+    const filterChange = (filterParams) => {
+      finished.value = false
+      requestParams = { ...requestParams, ...filterParams }
+      requestParams.page = 1
+      goodsList.value = []
+    }
+    const sortChange = (sortParams) => {
+      finished.value = false
+      requestParams = { ...requestParams, ...sortParams }
+      requestParams.page = 1
+      goodsList.value = []
+    }
     watch(() => route.params.id, (newVal) => {
       if (newVal && `/category/sub/${newVal}` === route.path) {
-        goodsList.value = []
         finished.value = false
+        goodsList.value = []
         requestParams = {
           page: 1,
           pageSize: 20
@@ -89,7 +101,7 @@ export default {
       }
     })
     return {
-      category, loading, finished, goodsList, getData
+      category, loading, finished, goodsList, getData, sortChange, filterChange
     }
   }
 }

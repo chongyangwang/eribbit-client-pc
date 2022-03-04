@@ -2,7 +2,7 @@
  * @Description: xtx-checkbox
  * @Author: cy2020
  * @Date: 2022-03-02 11:18:02
- * @LastEditTime: 2022-03-02 18:17:25
+ * @LastEditTime: 2022-03-04 11:14:17
 -->
 <template>
     <div class="xtx-checkbox" @click="changeChecked()">

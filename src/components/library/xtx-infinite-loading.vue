@@ -2,7 +2,7 @@
  * @Description:
  * @Author: cy2020
  * @Date: 2022-03-03 10:32:50
- * @LastEditTime: 2022-03-03 10:55:07
+ * @LastEditTime: 2022-03-03 16:25:39
 -->
 <template>
     <div class="xtx-infinite-loading" ref="target">
@@ -16,15 +16,15 @@
         </div>
     </div>
 </template>
-<script>import { useIntersectionObserver } from '@vueuse/core'
+<script>
 import { ref } from 'vue'
-
+import { useIntersectionObserver } from '@vueuse/core'
 export default {
   name: 'XtxInfiniteLoading',
   props: {
     loading: {
       type: Boolean,
-      default: true
+      default: false
     },
     finished: {
       type: Boolean,
@@ -40,9 +40,7 @@ export default {
         }
       }
     }, { threshold: 0 })
-    return {
-      target
-    }
+    return { target }
   }
 }
 </script>

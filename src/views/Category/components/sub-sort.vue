@@ -2,7 +2,7 @@
  * @Description:sub-sort
  * @Author: cy2020
  * @Date: 2022-03-02 18:00:33
- * @LastEditTime: 2022-03-02 18:25:35
+ * @LastEditTime: 2022-03-03 16:16:37
 -->
 <template>
     <div class='sub-sort'>
@@ -27,7 +27,7 @@
 import { reactive } from 'vue'
 export default {
   name: 'SubSort',
-  setup () {
+  setup (props, { emit }) {
     const sortParams = reactive({
       inventory: false,
       onlyDiscount: false,
@@ -47,9 +47,11 @@ export default {
         sortParams.sortField = sortField
         sortParams.sortMethod = null
       }
+      emit('sort-change', sortParams)
     }
-    const changeCheck = (value) => {
-      console.log(value)
+    const changeCheck = () => {
+      console.log(111)
+      emit('sort-change', sortParams)
     }
     return {
       sortParams,

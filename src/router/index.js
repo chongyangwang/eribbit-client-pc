@@ -2,7 +2,7 @@
  * @Description: wcy
  * @Author: cy2020
  * @Date: 2022-02-19 14:30:10
- * @LastEditTime: 2022-03-01 15:52:40
+ * @LastEditTime: 2022-03-04 09:59:43
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -22,6 +22,10 @@ const routes = [
       {
         path: '/category/sub/:id',
         component: () => import('../views/Category/sub.vue')
+      },
+      {
+        path: '/product/:id',
+        component: () => import('../views/Goods/index.vue')
       }
     ]
   }
