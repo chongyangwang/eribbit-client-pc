@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: cy2020
  * @Date: 2022-02-19 14:30:22
- * @LastEditTime: 2022-03-03 11:46:15
+ * @LastEditTime: 2022-03-07 19:27:57
 -->
 # eribbit-client-pc
 
@@ -55,3 +55,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 插件  扩展vue原有的功能
 
 vue3  没有过滤器
+
+
+SKU  SPU
